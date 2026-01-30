@@ -32,10 +32,10 @@ import { PFSize } from "#common/enums";
 import { userTypeToLabel } from "#common/labels";
 
 import { AKElement } from "#elements/Base";
+import { showAPIErrorMessage } from "#elements/messages/MessageContainer";
 import { WithCapabilitiesConfig } from "#elements/mixins/capabilities";
 import { WithLicenseSummary } from "#elements/mixins/license";
 import { WithSession } from "#elements/mixins/session";
-import { showAPIErrorMessage } from "#elements/messages/MessageContainer";
 import { Timestamp } from "#elements/table/shared";
 
 import { setPageDetails } from "#components/ak-page-navbar";
