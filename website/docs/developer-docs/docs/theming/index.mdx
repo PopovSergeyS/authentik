@@ -3,7 +3,8 @@ title: Documentation Theming
 sidebar_label: Theming
 ---
 
-import { InfimaColorPalette, UtilityColors, ColorGroup } from "@goauthentik/docusaurus-theme/components/infima/Swatch/index.tsx";
+import { PaletteGroup, ColorGroup } from "@goauthentik/docusaurus-theme/components/infima/Swatch/index.tsx";
+import { DispositionDangerColorEntries, DispositionInfoColorEntries, DispositionSuccessColorEntries, DispositionWarningColorEntries, InfimaColorsMap, UtilityColorEntries } from "@goauthentik/docusaurus-theme/components/infima/constants.ts";
 
 
 :::info Advanced
@@ -23,30 +24,49 @@ With the exception of a few customizations, our color palette is managed through
 
 ### Primary
 
-<ColorGroup name="primary" />
+<ColorGroup group={InfimaColorsMap.get("primary")} />
 
 ### Secondary
 
-<ColorGroup name="secondary" />
+<ColorGroup group={InfimaColorsMap.get("secondary")} />
 
 ### Success
 
-<ColorGroup name="success" />
+<ColorGroup group={InfimaColorsMap.get("success")} />
 
 ### Info
 
-<ColorGroup name="info" />
+<ColorGroup group={InfimaColorsMap.get("info")} />
 
 ### Warning
 
-<ColorGroup name="warning" />
+<ColorGroup group={InfimaColorsMap.get("warning")} />
 
 ### Danger
 
-<ColorGroup name="danger" />
+<ColorGroup group={InfimaColorsMap.get("danger")} />
 
 
+## Utility & UI Colors
 
-### Utility & UI Colors
+<PaletteGroup entries={UtilityColorEntries} />
 
-<UtilityColors />
+
+## Dispositions
+
+### Info
+
+<PaletteGroup entries={DispositionInfoColorEntries} />
+
+### Success
+
+<PaletteGroup entries={DispositionSuccessColorEntries} />
+
+
+### Warning
+
+<PaletteGroup entries={DispositionWarningColorEntries} />
+
+### Danger
+
+<PaletteGroup entries={DispositionDangerColorEntries} />
