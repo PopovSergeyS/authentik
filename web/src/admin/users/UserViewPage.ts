@@ -35,6 +35,7 @@ import { AKElement } from "#elements/Base";
 import { WithCapabilitiesConfig } from "#elements/mixins/capabilities";
 import { WithLicenseSummary } from "#elements/mixins/license";
 import { WithSession } from "#elements/mixins/session";
+import { showAPIErrorMessage } from "#elements/messages/MessageContainer";
 import { Timestamp } from "#elements/table/shared";
 
 import { setPageDetails } from "#components/ak-page-navbar";
@@ -185,15 +186,19 @@ export class UserViewPage extends WithLicenseSummary(
                       <button
                           class="pf-c-button pf-m-danger pf-m-block"
                           @click=${async () => {
-                              const response = await new CoreApi(
-                                  DEFAULT_CONFIG,
-                              ).coreUsersAccountLockdownCreate({
-                                  userAccountLockdownRequest: {
-                                      user: user.pk,
-                                  },
-                              });
-                              if (response.flowUrl) {
-                                  window.location.assign(response.flowUrl);
+                              try {
+                                  const response = await new CoreApi(
+                                      DEFAULT_CONFIG,
+                                  ).coreUsersAccountLockdownCreate({
+                                      userAccountLockdownRequest: {
+                                          user: user.pk,
+                                      },
+                                  });
+                                  if (response.flowUrl) {
+                                      window.location.assign(response.flowUrl);
+                                  }
+                              } catch (error) {
+                                  showAPIErrorMessage(error);
                               }
                           }}
                       >
