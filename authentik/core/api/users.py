@@ -976,7 +976,7 @@ class UserViewSet(
             ),
         },
     )
-    @action(detail=True, methods=["POST"], permission_classes=[IsAuthenticated])
+    @action(detail=True, methods=["POST"], permission_classes=[IsAuthenticated], filter_backends=[])
     @validate(UserAccountLockdownSerializer)
     @enterprise_action
     def account_lockdown(
